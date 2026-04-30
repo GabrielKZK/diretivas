@@ -1,0 +1,28 @@
+.preto {
+    background-color: black;
+    color: white;
+}
+
+.amarelo {
+    background-color: yellow;
+    color: black;
+}
+
+.btn-preto {
+    margin-top: 10px;
+    margin-right: 10px; 
+    background-color: black;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-amarelo {
+    margin-top: 10px;
+    background-color: yellow;
+    color: black;
+    padding: 8px 16px;
+    border: 1px solid black; 
+    cursor: pointer;
+}

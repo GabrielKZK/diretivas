@@ -1,0 +1,13 @@
+<h1>Exemplo ngStyle</h1>
+
+<div class="caixa"
+     [ngStyle]="{
+       'width': tamanho + 'px',
+       'height': tamanho + 'px'
+     }">
+</div>
+
+<hr>
+
+<button class="btn btn-primary mr-3" (click)="aumenta()">Aumentar</button>
+<button class="btn btn-primary mr-3" (click)="diminui()">Diminuir</button>
