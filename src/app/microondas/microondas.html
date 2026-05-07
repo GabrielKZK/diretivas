@@ -1,0 +1,33 @@
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="card p-4 shadow-lg bg-dark text-white" style="width: 350px; border-radius: 20px;">
+    
+    <div class="bg-black text-danger p-3 mb-4 rounded text-end" 
+         style="font-family: 'Courier New', monospace; font-size: 3.5rem; background: #000;">
+      {{ display.substring(0, 2) }}:{{ display.substring(2, 4) }}
+    </div>
+
+    <div class="row g-2 mb-3">
+      <div class="col-4" *ngFor="let n of ['1','2','3','4','5','6','7','8','9','0']">
+        <button class="btn btn-outline-light w-100 py-3 fs-4" (click)="digitar(n)" [disabled]="emAndamento">
+          {{ n }}
+        </button>
+      </div>
+    </div>
+
+    <div class="d-grid gap-2">
+      <button class="btn btn-primary btn-lg" (click)="adicionarDezSegundos()">+10 SEG</button>
+      
+      <div class="row g-2">
+        <div class="col-6">
+          <button class="btn btn-danger w-100 py-3 fw-bold" (click)="parar()">
+            {{ emAndamento ? 'CANCELAR' : 'LIMPAR' }}
+          </button>
+        </div>
+        <div class="col-6">
+          <button class="btn btn-success w-100 py-3 fw-bold" (click)="iniciar()" *ngIf="!emAndamento">INICIAR</button>
+          <button class="btn btn-warning w-100 py-3 fw-bold" (click)="pausar()" *ngIf="emAndamento">PAUSAR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
