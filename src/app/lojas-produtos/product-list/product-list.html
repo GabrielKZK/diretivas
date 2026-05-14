@@ -1,0 +1,21 @@
+<div class="container">
+
+    <h1>Loja de Produtos</h1>
+
+    <div class="lista-produtos">
+
+        <button
+            *ngFor="let produto of produtos"
+            (click)="selecionarProduto(produto)">
+
+            {{ produto.nome }}
+
+        </button>
+
+    </div>
+
+    <app-product-card
+        [produto]="produtoSelecionado">
+    </app-product-card>
+
+</div>

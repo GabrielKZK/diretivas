@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-cp-pai',
-  imports: [CpFilho],
+  imports: [CpFilho, FormsModule],
   templateUrl: './cp-pai.html',
   styleUrl: './cp-pai.scss',
 })

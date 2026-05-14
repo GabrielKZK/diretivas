@@ -5,8 +5,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-microondas',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './microondas.component.html',
-  styleUrls: ['./microondas.component.scss']
+  templateUrl: './microondas.html',
+  styleUrls: ['./microondas.scss']
 })
 export class MicroondasComponent implements OnDestroy {
   display: string = '0000'; 
@@ -14,7 +14,6 @@ export class MicroondasComponent implements OnDestroy {
   timer: any;
   emAndamento: boolean = false;
 
-  // Injetamos o ChangeDetectorRef para forçar o Angular a atualizar a tela
   constructor(private cdr: ChangeDetectorRef) {}
 
   digitar(num: string) {
@@ -31,13 +30,12 @@ export class MicroondasComponent implements OnDestroy {
     this.segundosTotais = (min * 60) + seg;
   }
 
+  // ESSA FUNÇÃO É O QUE FAZ O NÚMERO MUDAR NA TELA
   atualizarVisor() {
     const m = Math.floor(this.segundosTotais / 60);
     const s = this.segundosTotais % 60;
     this.display = m.toString().padStart(2, '0') + s.toString().padStart(2, '0');
-    
-    // FORÇA O ANGULAR A ATUALIZAR O HTML
-    this.cdr.detectChanges(); 
+    this.cdr.detectChanges(); // Força o Angular a atualizar o HTML
   }
 
   adicionarDezSegundos() {
@@ -51,8 +49,8 @@ export class MicroondasComponent implements OnDestroy {
     this.emAndamento = true;
     this.timer = setInterval(() => {
       if (this.segundosTotais > 0) {
-        this.segundosTotais--; 
-        this.atualizarVisor(); // Atualiza a variável e a tela
+        this.segundosTotais--; // Diminui o tempo real
+        this.atualizarVisor(); // REDUZ O NÚMERO NA TELINHA A CADA SEGUNDO
       } else {
         this.finalizar();
       }
@@ -76,7 +74,11 @@ export class MicroondasComponent implements OnDestroy {
 
   finalizar() {
     this.parar();
-    alert('Bip! Bip! Finalizado!');
+    const audio = new Audio('https://www.soundjay.com/buttons/beep-01a.mp3');
+    audio.play(); // TOCA O BIP
+    setTimeout(() => {
+      alert('Pronto!');
+    }, 200);
   }
 
   ngOnDestroy() {

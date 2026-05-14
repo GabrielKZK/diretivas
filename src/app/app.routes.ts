@@ -8,6 +8,9 @@ import { NgSwitch } from './ng-switch/ng-switch';
 import { Pipes } from './pipes/pipes';
 import { MicroondasComponent } from './microondas/microondas';
 import { CpPai } from './modulo-teste/cp-pai/cp-pai';
+import { CpPai2 } from './modulo-teste2/cp-pai2/cp-pai2';
+import { CpAgrupador } from './md-service/cp-agrupador/cp-agrupador';
+import { CpProdutos } from './lojas-produtos/cp-produtos/cp-produtos';
 
 export const routes: Routes = [
     {path: "ng-class", component:NgClass},
@@ -18,5 +21,9 @@ export const routes: Routes = [
     {path: "ng-model", component:NgModel},
     {path: "pipes", component:Pipes},
     {path: "microondas", component:MicroondasComponent},
-    {path: "ex_cpPai", component:CpPai}
+    {path: "ex_cpPai", component:CpPai},
+    {path: "ex_cpPai2", component:CpPai2},
+    {path: "cp_agrupador", component:CpAgrupador},
+    {path: "cp_produtos", component:CpProdutos}
+    
 ];
