@@ -1,9 +1,19 @@
 import { Component } from '@angular/core';
+import { ItemService } from '../item';
 
 @Component({
   selector: 'app-item-registration',
-  imports: [],
   templateUrl: './item-registration.html',
-  styleUrl: './item-registration.scss',
+  standalone: false
 })
-export class ItemRegistration {}
+export class ItemRegistrationComponent {
+  constructor(private itemService: ItemService) {}
+
+  salvar(nome: string, quantidade: string): void {
+    if (nome && nome.trim()) {
+      this.itemService.adicionar(nome, Number(quantidade));
+    } else {
+      alert('Preencha o nome do item!');
+    }
+  }
+}

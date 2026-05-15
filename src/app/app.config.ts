@@ -1,14 +1,12 @@
-import { ApplicationConfig, LOCALE_ID, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { ApplicationConfig, LOCALE_ID, importProvidersFrom } from '@angular/core'; // Adicionado importProvidersFrom
 import { provideRouter } from '@angular/router';
-
 import { routes } from './app.routes';
-import { registerLocaleData } from '@angular/common';
-import localePt from '@angular/common/locales/pt';
+import { EstoqueModule } from './estoque/estoque-module'; // Importe seu módulo aqui
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-    { provide: LOCALE_ID, useValue: 'pt-BR'}
+    { provide: LOCALE_ID, useValue: 'pt-BR' },
+    importProvidersFrom(EstoqueModule) // ESSENCIAL: Adicione esta linha aqui
   ]
 };

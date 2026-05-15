@@ -1,0 +1,47 @@
+:host {
+  display: block;
+}
+
+.card {
+  border-radius: 15px;
+  border: none;
+  
+  .table {
+    margin-bottom: 0;
+    
+    thead th {
+      background-color: #f8f9fa;
+      border-bottom: 2px solid #dee2e6;
+      color: #495057;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    tbody td {
+      padding: 15px 10px;
+      vertical-align: middle;
+    }
+  }
+
+  .badge {
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  .btn-group {
+    .btn {
+      padding: 5px 15px;
+      font-weight: bold;
+      
+      &-outline-success:hover { background-color: #d1e7dd; color: #0f5132; }
+      &-outline-warning:hover { background-color: #fff3cd; color: #664d03; }
+    }
+  }
+
+  .btn-danger {
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+}
